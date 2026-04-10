@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+     <link rel="icon" type="image/png" href="../Images/logo.png">
+    <link rel="stylesheet" href="servicedetails.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+<section class="hero">
+
+<div class="floating-icons">
+<i class="fa-solid fa-puzzle-piece"></i>
+<i class="fa-solid fa-lock"></i>
+<i class="fa-solid fa-key"></i>
+<i class="fa-solid fa-user-secret"></i>
+</div>
+
+<div class="hero-content">
+
+<span class="hero-tag">Ultimate Escape Room Adventure</span>
+
+<h1>Crack The Code.<br>Escape The Mystery.</h1>
+
+<p>
+Experience immersive escape room missions where teamwork,
+logic and creativity are the keys to survival.
+Can your team solve the puzzles before time runs out?
+</p>
+
+<div class="hero-buttons">
+
+<button class="btn-primary">
+Explore Missions
+</button>
+
+<button class="btn-secondary">
+Book Your Adventure
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="rooms">
+
+<h2 class="section-title">MISSION ADVENTURES</h2>
+
+<p class="section-subtitle">
+Choose from our immersive escape room missions designed to test
+your teamwork, creativity and problem-solving skills.
+</p>
+<div class="mission-filter">
+
+<button class="filter-btn active" data-filter="all">All Missions</button>
+<button class="filter-btn" data-filter="thriller">Thriller</button>
+<button class="filter-btn" data-filter="horror">Horror</button>
+<button class="filter-btn" data-filter="science">Science</button>
+<button class="filter-btn" data-filter="scifi">Sci-Fi</button>
+
+</div>
+
+
+<div class="card-container">
+
+<div class="service-card thriller">
+
+<div class="mission-tag">THRILLER</div>
+
+<i class="fa-solid fa-user-secret"></i>
+
+<h3>Spy Mission</h3>
+
+<p>
+Infiltrate an enemy intelligence base, decrypt hidden codes and stop
+a global cyber attack before the countdown ends.
+</p>
+
+<div class="difficulty-box">
+
+<div class="difficulty-title">
+Difficulty <span>Hard</span>
+</div>
+
+<div class="difficulty">
+<span style="width:85%"></span>
+</div>
+
+</div>
+
+<ul class="mission-info">
+<li>⏱ 60 Minutes</li>
+<li>👥 2-6 Players</li>
+<li>🧩 18+ Puzzles</li>
+</ul>
+
+<button class="mission-btn">Book Mission</button>
+
+</div>
+
+<div class="service-card horror">
+
+<div class="mission-tag">HORROR</div>
+
+<i class="fa-solid fa-ghost"></i>
+
+<h3>Haunted Mansion</h3>
+
+<p>
+Explore a mysterious haunted mansion and uncover supernatural secrets
+before the spirits trap your team forever.
+</p>
+
+<div class="difficulty-box">
+
+<div class="difficulty-title">
+Difficulty <span>Medium</span>
+</div>
+
+<div class="difficulty">
+<span style="width:70%"></span>
+</div>
+
+</div>
+
+<ul class="mission-info">
+<li>⏱ 60 Minutes</li>
+<li>👥 3-6 Players</li>
+<li>🧩 15+ Puzzles</li>
+</ul>
+
+<button class="mission-btn">Book Mission</button>
+
+</div>
+<div class="service-card science">
+
+<div class="mission-tag">SCIENCE</div>
+
+<i class="fa-solid fa-flask"></i>
+
+<h3>Mad Scientist Lab</h3>
+
+<p>
+Stop a dangerous chemical experiment by solving scientific puzzles
+and decoding hidden laboratory formulas.
+</p>
+
+<div class="difficulty-box">
+
+<div class="difficulty-title">
+Difficulty <span>Expert</span>
+</div>
+
+<div class="difficulty">
+<span style="width:90%"></span>
+</div>
+
+</div>
+
+<ul class="mission-info">
+<li>⏱ 60 Minutes</li>
+<li>👥 2-5 Players</li>
+<li>🧩 20+ Puzzles</li>
+</ul>
+
+<button class="mission-btn">Book Mission</button>
+
+</div>
+
+<div class="service-card scifi">
+
+<div class="mission-tag">SCI-FI</div>
+
+<i class="fa-solid fa-rocket"></i>
+
+<h3>Space Station</h3>
+
+<p>
+Restore oxygen and power systems inside a failing space station before
+the crew runs out of time.
+</p>
+
+<div class="difficulty-box">
+
+<div class="difficulty-title">
+Difficulty <span>Medium</span>
+</div>
+
+<div class="difficulty">
+<span style="width:75%"></span>
+</div>
+
+</div>
+
+<ul class="mission-info">
+<li>⏱ 60 Minutes</li>
+<li>👥 3-6 Players</li>
+<li>🧩 16+ Puzzles</li>
+</ul>
+
+<button class="mission-btn">Book Mission</button>
+
+</div>
+
+</div>
+
+</section>
+<script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".service-card");
+
+
+filterButtons.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+document.querySelector(".filter-btn.active").classList.remove("active");
+btn.classList.add("active");
+
+let filter = btn.dataset.filter;
+
+cards.forEach(card => {
+
+if(filter === "all" || card.classList.contains(filter)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+});
+
+});
+
+window.addEventListener("load", () => {
+
+document.querySelectorAll(".difficulty span").forEach(bar => {
+
+let width = bar.getAttribute("style").replace("width:","");
+setTimeout(()=>{
+
+bar.style.width = width;
+
+},300);
+
+});
+
+});
+</script>
+<section class="team-challenges" id="challenges">
+
+<h2 class="section-title">TEAM CHALLENGES</h2>
+<p class="section-subtitle">
+Specially designed experiences for groups who want to collaborate,
+compete and create unforgettable memories.
+</p>
+
+<div class="card-container">
+<div class="service-card small">
+
+<span class="mission-tag">Group Fun</span>
+
+<i class="fa-solid fa-user-group"></i>
+
+<h3>Friends Squad</h3>
+
+<p>
+Challenge your squad in a fast-paced escape adventure filled with
+hidden puzzles, secret codes and teamwork missions.
+</p>
+
+<ul class="challenge-info">
+<li>👥 3-6 Players</li>
+<li>⏱ 60 Minutes</li>
+<li>🏆 Competitive Mode</li>
+</ul>
+
+<button class="mission-btn">Start Adventure</button>
+
+</div>
+
+<div class="service-card small">
+
+<span class="mission-tag">Family Fun</span>
+
+<i class="fa-solid fa-people-roof"></i>
+
+<h3>Family Adventure</h3>
+
+<p>
+A fun and interactive puzzle journey designed for families to
+cooperate, solve clues and create unforgettable moments.
+</p>
+
+<ul class="challenge-info">
+<li>👨‍👩‍👧‍👦 2-6 Players</li>
+<li>⏱ 60 Minutes</li>
+<li>🎯 Beginner Friendly</li>
+</ul>
+
+<button class="mission-btn">Start Adventure</button>
+
+</div>
+
+</div>
+
+</section>
+<script>
+    const challengeBtns = document.querySelectorAll(".mission-btn");
+
+challengeBtns.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+btn.innerText = "Loading...";
+btn.style.opacity = "0.7";
+
+setTimeout(()=>{
+btn.innerText = "Adventure Ready!";
+btn.style.opacity = "1";
+},1200);
+
+});
+
+});
+</script>
+
+
+<section class="corporate" id="events">
+
+<h2 class="section-title">CORPORATE EXPERIENCES</h2>
+
+<p class="section-subtitle">
+Engage your team with immersive escape room challenges designed
+to improve communication, leadership and creative thinking.
+</p>
+
+<div class="card-container">
+
+
+<div class="service-card small">
+
+<span class="mission-tag">Corporate</span>
+
+<i class="fa-solid fa-briefcase"></i>
+
+<h3>Team Building</h3>
+
+<p>
+Strengthen collaboration and communication through exciting
+escape room missions designed specifically for workplace teams.
+</p>
+
+<ul class="challenge-info">
+<li>👥 4–8 Participants</li>
+<li>⏱ 60–90 Minute Sessions</li>
+<li>🤝 Collaboration Focus</li>
+</ul>
+
+<button class="mission-btn">Book Event</button>
+
+</div>
+
+
+<div class="service-card small">
+
+<span class="mission-tag">Innovation</span>
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>Innovation Build</h3>
+
+<p>
+Stimulate creativity and strategic thinking with puzzles that
+challenge teams to develop innovative solutions together.
+</p>
+
+<ul class="challenge-info">
+<li>💡 Creative Thinking</li>
+<li>🧠 Problem Solving</li>
+<li>🚀 Strategy Development</li>
+</ul>
+
+<button class="mission-btn">Book Event</button>
+
+</div>
+
+</div>
+
+</section>
+<script>
+    const corporateBtns = document.querySelectorAll(".corporate .mission-btn");
+
+corporateBtns.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+btn.innerText = "Processing...";
+btn.style.opacity = "0.7";
+
+setTimeout(()=>{
+btn.innerText = "Event Scheduled";
+btn.style.opacity = "1";
+},1200);
+
+});
+
+});
+</script>
+
+<section class="stats">
+
+<h2 class="section-title">Our Achievements</h2>
+
+<p class="section-subtitle">
+Thousands of players have challenged their minds in our escape rooms.
+Here are some milestones from our adventure center.
+</p>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<div class="stat-icon">
+<i class="fa-solid fa-user-group"></i>
+</div>
+
+<h2 class="counter" data-target="5000">0</h2>
+<p>Players Escaped</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+<i class="fa-solid fa-puzzle-piece"></i>
+</div>
+
+<h2 class="counter" data-target="20">0</h2>
+<p>Puzzle Types</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+<i class="fa-solid fa-star"></i>
+</div>
+
+<h2 class="counter" data-target="3000">0</h2>
+<p>Customer Satisfaction</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+<i class="fa-solid fa-earth-americas"></i>
+</div>
+
+<h2 class="counter" data-target="4">0</h2>
+<p>Mission Worlds</p>
+
+</div>
+
+</div>
+
+</section>
+<script>
+    const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+const target = +counter.getAttribute("data-target");
+
+let count = 0;
+
+const speed = target / 120;
+
+function updateCount(){
+
+count += speed;
+
+if(count < target){
+
+counter.innerText = Math.floor(count);
+
+requestAnimationFrame(updateCount);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+}
+
+updateCount();
+
+});
+</script>
+
+
+<section class="cta">
+
+<div class="cta-content">
+
+<h2>Ready To Escape The Impossible?</h2>
+
+<p>
+Step into thrilling worlds, solve mysterious puzzles,
+and race against time. Gather your team and experience
+the most immersive escape room adventure.
+</p>
+
+<div class="cta-buttons">
+
+<button class="primary-btn">Book Your Mission</button>
+
+<button class="secondary-btn">Explore Rooms</button>
+
+</div>
+
+</div>
+
+</section>
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

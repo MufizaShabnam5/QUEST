@@ -1,0 +1,505 @@
+:root{
+--text-color:#ffffff;
+--bg-overlay:rgba(0,0,0,0.65);
+--hero-bg:linear-gradient(135deg,#1a0f00,#000000);
+--section-bg:linear-gradient(135deg,#1a0f00,#000000);
+--overlay:rgba(0,0,0,0.35);
+--number-color:#ffd000;
+--hover-number:#ff7b00;
+ 
+--bg:#0b0b0b;
+--text:#ffffff;
+--card-bg:#000000;
+--review-bg:rgba(255,255,255,0.08);
+ 
+--topbar-bg:linear-gradient(90deg,#6d28d9,#7c3aed,#9333ea);
+ 
+--dark-header:#0b0b0b;
+--light-header:#ffffff;
+ 
+--text-dark:#ffffff;
+--text-light:#000000;
+}
+ 
+ 
+ 
+body{
+--header-bg:var(--dark-header);
+--nav-color:#fff;
+ 
+background:#0b0b0b;
+color:#fff;
+}
+ 
+ 
+ 
+body.light{
+--text-color:#000000;
+--bg-overlay:rgba(255,255,255,0.65);
+--hero-bg:linear-gradient(135deg,#fff7e6,#ffffff);
+--section-bg:linear-gradient(135deg,#fff4e6,#ffffff);
+--overlay:rgba(255,170,0,0.08);
+--number-color:#ff7b00;
+--hover-number:#ff4500;
+ 
+--bg:#ffffff;
+--text:#0b0b0b;
+--card-bg:#ffffff;
+--review-bg:rgba(0,0,0,0.08);
+ 
+--header-bg:var(--light-header);
+--nav-color:#000;
+}
+ 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+ 
+ 
+
+
+
+
+
+
+
+
+
+.blog-hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:url("Images/featuredblog.jpeg") center/cover no-repeat;
+position:relative;
+}
+
+.blog-hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(20,0,40,0.8));
+}
+
+.blog-hero-content{
+position:relative;
+z-index:2;
+animation:heroFadeUp 1.2s ease forwards;
+margin-top: 100px;
+}
+
+.blog-hero h1{
+font-size:58px;
+font-weight: 800;
+color:#c084fc;
+margin-bottom:15px;
+}
+
+.blog-hero p{
+font-size:20px;
+color:#ffd24d;
+}
+
+@keyframes heroFadeUp{
+0%{opacity:0; transform:translateY(50px);}
+100%{opacity:1; transform:translateY(0);}
+}
+
+
+
+.section-title{
+text-align:center;
+font-size:38px;
+margin-bottom:60px;
+color:#721b9d;
+position:relative;
+display:inline-block;
+left:50%;
+transform:translateX(-50%);
+cursor:pointer;
+transition:0.3s;
+}
+
+.section-title::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-8px;
+width:0%;
+height:3px;
+background:#ffd24d;
+transition:0.4s;
+}
+
+.section-title:hover{
+color:#ffd24d;
+}
+
+.section-title:hover::after{
+width:100%;
+}
+
+
+
+.strategy-section{
+padding:80px 10%;
+background:linear-gradient(180deg,#0a0014,#18002a);
+}
+body.light .strategy-section{
+   background:linear-gradient(135deg,rgb(223, 160, 220), rgb(215, 209, 216));
+}
+
+.strategy-item{
+display:flex;
+align-items:center;
+gap:50px;
+margin-bottom:80px;
+transition:0.4s;
+cursor: none;
+}
+#one{
+   cursor: none;
+}
+#two{
+   cursor: none;
+}
+
+.strategy-item:nth-child(even){
+flex-direction:row-reverse;
+}
+
+.strategy-item img{
+width:420px;
+border-radius:15px;
+transition:0.5s;
+}
+
+.strategy-item:hover img{
+transform:scale(1.05);
+}
+
+.strategy-content h3{
+font-size:26px;
+color:#ffd24d;
+margin-bottom:15px;
+}
+
+.strategy-content p{
+line-height:1.7;
+color:#ddd;
+max-width:500px;
+}
+
+
+
+
+
+.blog-section{
+padding:90px 8%;
+}
+body.light .blog-section{
+   background-color: white;
+}
+
+.blog-container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+
+}
+
+.blog-card{
+background:var(--card-bg);
+border-radius:15px;
+overflow:hidden;
+transition:0.6s;
+opacity:1 !important;
+transform:translateY(0) !important;
+box-shadow:0 20px 40px rgba(204, 101, 241, 0.4);
+}
+
+
+
+.blog-card.show{
+transform:translateY(0);
+opacity:1;
+}
+
+.blog-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.blog-card:hover img{
+transform:scale(1.1);
+}
+.blog-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(204, 101, 241, 0.4);
+}
+
+
+.blog-info{
+padding:20px;
+}
+
+.blog-info h3{
+color:#ffd000;
+}
+
+.blog-info p{
+margin:12px 0;
+color:rgb(163, 152, 152);
+}
+
+.blog-info a{
+text-decoration:none;
+color:#c77dff;
+font-weight:bold;
+}
+
+
+
+
+
+
+.latest-adventures{
+padding:80px 10%;
+}
+body.light .latest-adventures {
+   background-color: rgb(251, 230, 251);
+}
+
+
+
+.adventure-card{
+display:flex;
+align-items:center;
+gap:40px;
+background:linear-gradient(145deg,#1a002a,#0a0014);
+border-radius:15px;
+padding:20px;
+transition:0.4s;
+border:2px solid transparent;
+cursor:pointer;
+margin-bottom: 30px;;
+}
+body.light .adventure-card{
+   background:linear-gradient(145deg,white,purple);
+}
+
+.adventure-card:hover{
+transform:translateY(-10px);
+border-color:#a855f7;
+box-shadow:0 20px 40px rgba(168,85,247,0.4);
+}
+
+.adventure-card img{
+width:40%;
+border-radius:12px;
+transition:0.5s;
+}
+
+.adventure-card:hover img{
+transform:scale(1.05);
+}
+
+.adventure-card.right{
+flex-direction:row-reverse;
+}
+
+.adventure-content h3{
+color:#ffd24d;
+margin-bottom:10px;
+}
+
+.adventure-content p{
+color:white;
+margin-bottom:15px;
+}
+
+.adventure-content a{
+text-decoration:none;
+background:linear-gradient(90deg,#7c3aed,#9333ea);
+padding:10px 22px;
+border-radius:25px;
+color:white;
+transition:0.4s;
+}
+
+.adventure-content a:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(124,58,237,0.5);
+}
+
+
+.reveal,
+.reveal-left,
+.reveal-right{
+opacity:0;
+transition:1s;
+}
+
+.reveal{transform:translateY(60px);}
+.reveal-left{transform:translateX(-80px);}
+.reveal-right{transform:translateX(80px);}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active{
+opacity:1;
+transform:translate(0);
+}
+
+@media (max-width:639px){
+
+
+
+.blog-hero{
+height:70vh;
+padding:0 20px;
+}
+
+.blog-hero h1{
+font-size:32px;
+}
+
+.blog-hero p{
+font-size:16px;
+}
+
+
+.section-title{
+font-size:28px;
+margin-bottom:40px;
+}
+
+
+
+.strategy-item{
+flex-direction:column;
+text-align:center;
+gap:25px;
+}
+
+.strategy-item img{
+width:100%;
+max-width:350px;
+}
+
+.strategy-content p{
+max-width:100%;
+}
+
+
+
+.blog-container{
+grid-template-columns:1fr;
+}
+
+
+
+.adventure-card{
+flex-direction:column;
+text-align:center;
+gap:20px;
+}
+
+.adventure-card.right{
+flex-direction:column;
+}
+
+.adventure-card img{
+width:100%;
+}
+
+}
+@media (min-width:640px) and (max-width:1023px){
+
+
+.blog-hero h1{
+font-size:42px;
+}
+
+.blog-hero p{
+font-size:18px;
+}
+
+
+
+.strategy-item{
+flex-direction:column;
+text-align:center;
+gap:30px;
+flex-wrap:wrap;
+
+}
+
+.strategy-item img{
+width:70%;
+}
+
+
+
+.blog-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+
+
+.adventure-card{
+flex-direction:column;
+text-align:center;
+}
+
+.adventure-card.right{
+flex-direction:column;
+}
+
+.adventure-card img{
+width:80%;
+}
+
+}
+@media (min-width:1024px) and (max-width:1279px){
+
+
+
+.blog-container{
+grid-template-columns:repeat(3,1fr);
+}
+
+
+.strategy-item img{
+width:380px;
+}
+
+
+
+.adventure-card img{
+width:45%;
+}
+
+}
+@media (min-width:1280px){
+
+.blog-container{
+grid-template-columns:repeat(3,1fr);
+}
+
+.strategy-item img{
+width:420px;
+}
+
+.adventure-card img{
+width:40%;
+}
+
+}

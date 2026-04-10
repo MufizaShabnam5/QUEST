@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="icon" type="image/png" href="../Images/logo.png">
+    <link rel="stylesheet" href="../css/navbar.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header class="header" id="header">
+
+<h2 class="logo-text">
+  <img src="../Images/logo.png" alt="Escape Quest Logo" class="logo-img">
+  Escape Quest
+</h2>
+
+<div class="menu-toggle" id="menuToggle">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+<ul class="nav-links" id="navLinks">
+ <li class="dropdown"> 
+    <a href="index.html">Home</a>
+     <ul class="dropdown-menu">
+        <li><a href="index.html">Home</a></li>
+         <li><a href="home2.html">Home 2</a></li> 
+    </ul>
+ </li> 
+ <li><a href="about.html">About Us</a></li> 
+  <li><a href="services.html">Services</a></li> 
+      <li><a href="blogs.html">Blog</a></li>
+       <li><a href="Contact.html">Contact</a></li> 
+        <li><a href="dashboard.html">Dashboard</a></li> 
+       <li class="mobile-login"> <a href="login.html">Login</a> </li>
+</ul>
+
+<div class="nav-right">
+<a href="login.html" class="login-btn">Login</a>
+
+<i class="fa-solid fa-right-left rtl-toggle" id="rtlToggle"></i>
+<i class="fa-solid fa-moon theme-toggle" id="themeToggle"></i>
+</div>
+</header>
+<script src="../js/components.js"></script>
+</body>
+</html>
