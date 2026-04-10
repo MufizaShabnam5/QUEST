@@ -4,90 +4,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
- <link rel="icon" type="image/png" href="../Images/logo.png">
+ <link rel="icon" type="image/png" href="../Images/logo.png">
 <link rel="stylesheet" href="login.css">
-
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
+
 <body>
 <button id="modeBtn" class="mode-toggle">
-  <i class="fa fa-moon"></i>
+<i class="fa fa-moon"></i>
 </button>
 <div class="login-card">
+<div class="success-box" id="successBox">
+✔ Login Successful
+</div>
 <a href="index.html" class="logo-text">
-    <img src="../Images/logo.png" alt="Escape Quest Logo" class="logo-img">
-    Escape Quest
-  </a>
-<h2>Welcome Back</h2>
-
+<img src="../Images/logo.png" class="logo-img">
+Escape Quest
+</a>
+<h2>Welcome Back 👋</h2>
+<p class="subtitle">Login to continue your journey</p>
 <form>
-
 <div class="input-group">
-<input type="email" required>
+<input type="email" id="email" required>
 <label>Email Address</label>
 </div>
-
-<div class="input-group">
+<div class="input-group password-group">
 <input type="password" id="password" required>
 <label>Password</label>
-<i class="fa fa-eye toggle-pass" onclick="togglePassword()"></i>
+<span class="eye-icon" onclick="togglePassword()">
+<i class="fa fa-eye"></i>
+</span>
 </div>
+<div class="options">
+<label class="remember">
+<input type="checkbox" id="rememberMe">
+<span class="checkmark"></span>
+Remember me
+</label>
+<a href="#">Forgot?</a>
 
-<button class="login-btn">Login</button>
+</div>
+<button class="login-btn" id="loginBtn">
 
+<span class="btn-text">Login</span>
+
+<span class="loader"></span>
+
+</button>
 </form>
-
-<div class="social">
-<button><i class="fab fa-google"></i> Google</button>
-<button><i class="fab fa-facebook"></i> Facebook</button>
+<div class="divider">OR</div>
+<div class="social-login">
+<button><i class="fab fa-google"></i></button>
+<button><i class="fab fa-github"></i></button>
 </div>
-
 <div class="signup-link">
-Don't have an account? <a href="signup.html">Signup</a>
+Don’t have an account? <a href="signup.html">Signup</a>
 </div>
-
 </div>
 <script>
-    // Toggle Password
-function togglePassword(){
-let pass = document.getElementById("password");
+const loginBtn = document.getElementById("loginBtn");
+const successBox = document.getElementById("successBox");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const rememberMe = document.getElementById("rememberMe");
+window.onload = () => {
+const savedEmail = localStorage.getItem("email");
+if(savedEmail){
+email.value = savedEmail;
 
-if(pass.type === "password"){
-pass.type = "text";
-}else{
-pass.type = "password";
+rememberMe.checked = true;
+
 }
+
+};
+
+loginBtn.onclick = (e) => {
+e.preventDefault();
+let valid = true;
+if(email.value.trim() === ""){
+
+email.classList.add("shake");
+
+valid = false;
+
+}
+if(password.value.trim() === ""){
+password.classList.add("shake");
+valid = false;
+
+}
+setTimeout(()=>{
+email.classList.remove("shake");
+password.classList.remove("shake");
+
+},400);
+
+if(!valid) return;
+if(rememberMe.checked){
+localStorage.setItem("email", email.value);
+
+}else{
+localStorage.removeItem("email");
+
+}
+loginBtn.classList.add("loading");
+setTimeout(()=>{
+loginBtn.classList.remove("loading");
+successBox.classList.add("show");
+setTimeout(()=>{
+window.location.href="index.html";
+
+},1500);
+},2000);
+
+};
+function togglePassword(){
+const icon = document.querySelector(".eye-icon i");
+if(password.type === "password"){
+password.type = "text";
+icon.classList.replace("fa-eye","fa-eye-slash");
+}else{
+password.type = "password";
+icon.classList.replace("fa-eye-slash","fa-eye");
+
+}
+
 }
 
 
 const modeBtn = document.getElementById("modeBtn");
 const icon = modeBtn.querySelector("i");
+modeBtn.onclick = () => {
+document.body.classList.toggle("dark");
+icon.classList.toggle("fa-moon");
+icon.classList.toggle("fa-sun");
 
-// Load saved mode
-const savedMode = localStorage.getItem("mode");
-
-if(savedMode === "dark"){
-    document.body.classList.add("dark");
-    icon.classList.replace("fa-moon","fa-sun");
-}
-
-// Toggle mode
-modeBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    if(document.body.classList.contains("dark")){
-        icon.classList.replace("fa-moon","fa-sun");
-        localStorage.setItem("mode","dark");
-    }else{
-        icon.classList.replace("fa-sun","fa-moon");
-        localStorage.setItem("mode","light");
-    }
-
-});
+};
 </script>
-
 </body>
+
 </html>
