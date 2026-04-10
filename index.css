@@ -619,6 +619,7 @@ margin-bottom:6px;
 .book-btn{
   margin-top: 15px;
 padding:14px 32px;
+border:1px solid #7c3aed;
 border-radius:40px;
 font-weight:600;
 text-decoration:none;
